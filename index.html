@@ -10,7 +10,28 @@
 </head>
 <body>
     <div id="root">
-       <h1>{{places[1].title}}</h1>
+        <div class="container">
+            <div class="items">
+                
+                <div v-for="(item, index) in places" class="item" :class="{active : index === activePic}">
+                    <img :src="item.image" alt="">
+                    <div class="text">
+                        <h3>{{item.title}}</h3>
+                        <p>{{item.text}}</p>
+                    </div>
+                </div>
+               
+            </div>
+            <div class="thumbs">
+                <div @click="goBack" class="prev"></div>
+                
+                <div @click="focusOnThis" v-for="(item, index) in places" class="thumb" :class="{active : index === activePic}">
+                    <img :src="item.image" alt="">
+                </div>
+               
+                <div @click="goForward" class="next"></div>
+            </div>
+       </div>
    </div>
 
     <script src="js/app.js"></script>
