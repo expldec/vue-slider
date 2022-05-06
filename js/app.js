@@ -40,8 +40,8 @@ const app = new Vue(
                 this.activePic <= 0 ? this.activePic = this.places.length - 1 : this.activePic--;
                 console.log(this.activePic);
             },
-            focusOnThis: function() {
-                console.log(this);
+            focusOnThis: function(event) {
+                console.log(event.target);
             }
         }
     }
